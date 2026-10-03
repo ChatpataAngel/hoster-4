@@ -1,0 +1,218 @@
+# TG BOT HOSTER - 4-instance HA blueprint.
+services:
+  - type: web
+    plan: free
+    name: tg-hoster-1
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: DB_NAME
+        value: TG_HOSTER
+      - key: HA_ENABLED
+        value: "true"
+      - key: INSTANCE_ID
+        value: hoster-1
+      - key: LEASE_TTL_SECONDS
+        value: "45"
+      - key: LEASE_POLL_SECONDS
+        value: "5"
+      - key: DASHBOARD_API_KEY
+        sync: false
+      - key: API_CORS_ORIGINS
+        sync: false
+      - key: MAX_UPLOAD_MB
+        value: "50"
+      - key: MAX_ZIP_UNCOMPRESSED_MB
+        value: "200"
+      - key: MAX_ZIP_FILES
+        value: "500"
+      - key: MAX_PROJECT_DISK_MB
+        value: "250"
+      - key: MAX_LOG_MB
+        value: "10"
+      - key: MAX_MEMORY_MB
+        value: "1024"
+      - key: MAX_CPU_SECONDS
+        value: "3600"
+      - key: MAX_OPEN_FILES
+        value: "256"
+      - key: MAX_PROCESSES
+        value: "64"
+      - key: DEP_INSTALL_TIMEOUT
+        value: "300"
+      - key: SHARED_STATE_MAX_MB
+        value: "200"
+      - key: AUTO_START_PROJECTS_ON_LEADER
+        value: "1"
+  - type: web
+    plan: free
+    name: tg-hoster-2
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: DB_NAME
+        value: TG_HOSTER
+      - key: HA_ENABLED
+        value: "true"
+      - key: INSTANCE_ID
+        value: hoster-2
+      - key: LEASE_TTL_SECONDS
+        value: "45"
+      - key: LEASE_POLL_SECONDS
+        value: "5"
+      - key: DASHBOARD_API_KEY
+        sync: false
+      - key: API_CORS_ORIGINS
+        sync: false
+      - key: MAX_UPLOAD_MB
+        value: "50"
+      - key: MAX_ZIP_UNCOMPRESSED_MB
+        value: "200"
+      - key: MAX_ZIP_FILES
+        value: "500"
+      - key: MAX_PROJECT_DISK_MB
+        value: "250"
+      - key: MAX_LOG_MB
+        value: "10"
+      - key: MAX_MEMORY_MB
+        value: "1024"
+      - key: MAX_CPU_SECONDS
+        value: "3600"
+      - key: MAX_OPEN_FILES
+        value: "256"
+      - key: MAX_PROCESSES
+        value: "64"
+      - key: DEP_INSTALL_TIMEOUT
+        value: "300"
+      - key: SHARED_STATE_MAX_MB
+        value: "200"
+      - key: AUTO_START_PROJECTS_ON_LEADER
+        value: "1"
+  - type: web
+    plan: free
+    name: tg-hoster-3
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: DB_NAME
+        value: TG_HOSTER
+      - key: HA_ENABLED
+        value: "true"
+      - key: INSTANCE_ID
+        value: hoster-3
+      - key: LEASE_TTL_SECONDS
+        value: "45"
+      - key: LEASE_POLL_SECONDS
+        value: "5"
+      - key: DASHBOARD_API_KEY
+        sync: false
+      - key: API_CORS_ORIGINS
+        sync: false
+      - key: MAX_UPLOAD_MB
+        value: "50"
+      - key: MAX_ZIP_UNCOMPRESSED_MB
+        value: "200"
+      - key: MAX_ZIP_FILES
+        value: "500"
+      - key: MAX_PROJECT_DISK_MB
+        value: "250"
+      - key: MAX_LOG_MB
+        value: "10"
+      - key: MAX_MEMORY_MB
+        value: "1024"
+      - key: MAX_CPU_SECONDS
+        value: "3600"
+      - key: MAX_OPEN_FILES
+        value: "256"
+      - key: MAX_PROCESSES
+        value: "64"
+      - key: DEP_INSTALL_TIMEOUT
+        value: "300"
+      - key: SHARED_STATE_MAX_MB
+        value: "200"
+      - key: AUTO_START_PROJECTS_ON_LEADER
+        value: "1"
+  - type: web
+    plan: free
+    name: tg-hoster-4
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: DB_NAME
+        value: TG_HOSTER
+      - key: HA_ENABLED
+        value: "true"
+      - key: INSTANCE_ID
+        value: hoster-4
+      - key: LEASE_TTL_SECONDS
+        value: "45"
+      - key: LEASE_POLL_SECONDS
+        value: "5"
+      - key: DASHBOARD_API_KEY
+        sync: false
+      - key: API_CORS_ORIGINS
+        sync: false
+      - key: MAX_UPLOAD_MB
+        value: "50"
+      - key: MAX_ZIP_UNCOMPRESSED_MB
+        value: "200"
+      - key: MAX_ZIP_FILES
+        value: "500"
+      - key: MAX_PROJECT_DISK_MB
+        value: "250"
+      - key: MAX_LOG_MB
+        value: "10"
+      - key: MAX_MEMORY_MB
+        value: "1024"
+      - key: MAX_CPU_SECONDS
+        value: "3600"
+      - key: MAX_OPEN_FILES
+        value: "256"
+      - key: MAX_PROCESSES
+        value: "64"
+      - key: DEP_INSTALL_TIMEOUT
+        value: "300"
+      - key: SHARED_STATE_MAX_MB
+        value: "200"
+      - key: AUTO_START_PROJECTS_ON_LEADER
+        value: "1"
